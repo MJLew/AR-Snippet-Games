@@ -1,0 +1,1 @@
+- Undo changes to build faster as per this webpage
