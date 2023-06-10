@@ -49,9 +49,9 @@ public class MiniCarUI : MonoBehaviour
     {
         if (GameStateManager.gameState.Equals(GameStateManager.GameState.notPlaying))
         {
-            GameStateManager.SetGameState(GameStateManager.GameState.playing);
+            gameStateManager.SetGameState(GameStateManager.GameState.playing);
+            gameStateManager.SetPackagesCollected(0);
             ResetText();
-            timeLeft = 60;
             StartCoroutine(StartTimer(timeLeft));
         }
         
@@ -60,7 +60,6 @@ public class MiniCarUI : MonoBehaviour
     // Coroutine to run the game timer alongside the game
     public IEnumerator StartTimer(int timeLeft)
     {
-        timerText.enabled = true;
         timerTextObj.SetActive(true);
         double currentTime = timeLeft;
         // Run timer until time goes to 0
@@ -70,23 +69,28 @@ public class MiniCarUI : MonoBehaviour
             yield return new WaitForSeconds(1f);
             currentTime--;
         }
-       
-        // After timer finishes
-        GameStateManager.SetGameState(GameStateManager.GameState.notPlaying);
 
-        // TODO: After a delay, reset the present count and remove the timer.
+        // After timer finishes
+        AnnouncementTextObj.SetActive(true);
+        AnnouncementText.text = "You managed to collect " + packageCount + " presents! Good Job!";
+        gameStateManager.SetGameState(GameStateManager.GameState.notPlaying);
+
+        // TODO maybe: After a delay, reset the present count and remove the timer.
     }
 
     // Resets the UI text back to default
     private void ResetText()
     {
+        timeLeft = 60;
         packageCount = 0;
-        packageCountText.text = "Presents Collected: " + packageCount;
-        timerText.text = "Time Left: 00:00";
+        timerText.text = "Time Left: 60:00";
+        packageCountText.text = "Presents Collected: 0";
+        AnnouncementText.text = "";
     }
-
-    public void incrementPackageCount()
+    
+    public void setPackageCount(int packagesCollected)
     {
-        packageCount++;
+        packageCount = packagesCollected;
+        packageCountText.text = "Presents Collected: " + packageCount;
     }
 }

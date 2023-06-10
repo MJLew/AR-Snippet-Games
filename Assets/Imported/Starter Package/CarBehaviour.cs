@@ -22,9 +22,14 @@ using UnityEngine;
  */
 public class CarBehaviour : MonoBehaviour
 {
+    public GameStateManager gameStateManager;
     public ReticleBehaviour Reticle;
     public float Speed = 1.2f;
 
+    private void Start()
+    {
+        gameStateManager = GameObject.Find("GameManager").GetComponent<GameStateManager>(); // Should be fine as this is only called once on a single player car instance
+    }
     private void Update()
     {
         var trackingPosition = Reticle.transform.position;
@@ -46,6 +51,7 @@ public class CarBehaviour : MonoBehaviour
         if (Package != null)
         {
             Destroy(other.gameObject);
+            gameStateManager.SetPackagesCollected(GameStateManager.packagesCollected+1);
         }
     }
 }

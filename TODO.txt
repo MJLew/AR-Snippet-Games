@@ -1,1 +1,1 @@
-- Undo changes to build faster as per this webpage
+- Undo changes to build faster as per this webpage: https://github.com/juicycleff/flutter-unity-view-widget/issues/643

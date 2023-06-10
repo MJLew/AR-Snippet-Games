@@ -965,8 +965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStateManager: {fileID: 1696811393}
   timerTextObj: {fileID: 420890978}
-  packageCountObj: {fileID: 1544902744}
-  AnnouncementObj: {fileID: 1766976905}
+  packageCountTextObj: {fileID: 1544902744}
+  AnnouncementTextObj: {fileID: 1766976905}
 --- !u!114 &1319206118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 800, y: 1600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1516,6 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4859bdaa79553704ea6a5b8c6a45c5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miniCarUI: {fileID: 1319206117}
 --- !u!4 &1696811394
 Transform:
   m_ObjectHideFlags: 0
