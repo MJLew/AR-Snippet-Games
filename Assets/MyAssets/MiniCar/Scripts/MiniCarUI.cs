@@ -25,6 +25,7 @@ public class MiniCarUI : MonoBehaviour
         timerText = timerTextObj.GetComponent<TextMeshProUGUI>();
         packageCountText = packageCountTextObj.GetComponent<TextMeshProUGUI>();
         AnnouncementText = AnnouncementTextObj.GetComponent<TextMeshProUGUI>();
+        timerTextObj.SetActive(false);
     }
 
     // Start method, used for when the scene starts
